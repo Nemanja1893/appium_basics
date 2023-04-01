@@ -16,7 +16,7 @@ public abstract class BaseTest {
 
     protected AndroidDriver driver;
     protected AppiumDriverLocalService service;
-
+    protected PreferencePage preferencePage;
 
 
     @BeforeClass
@@ -41,6 +41,7 @@ public abstract class BaseTest {
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), cap);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+        preferencePage = new PreferencePage(driver, service);
     }
     @AfterClass
     public void closeAppium(){
