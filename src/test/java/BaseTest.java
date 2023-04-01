@@ -17,7 +17,7 @@ public abstract class BaseTest {
     protected AndroidDriver driver;
     protected AppiumDriverLocalService service;
     protected PreferencePage preferencePage;
-
+    protected ViewsPage viewsPage;
 
     @BeforeClass
     public void configureAppium() throws MalformedURLException {
@@ -42,6 +42,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         preferencePage = new PreferencePage(driver, service);
+        viewsPage = new ViewsPage(driver, service);
     }
     @AfterClass
     public void closeAppium(){
