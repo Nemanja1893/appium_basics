@@ -10,4 +10,16 @@ public class Util {
         ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
                 ImmutableMap.of("elementId", ((RemoteWebElement)element).getId(), "duration",2000));
     }
+    public static void scrollToEndAction(AndroidDriver driver){
+        boolean canScrollMore;
+        do{
+            canScrollMore = (Boolean) ((JavascriptExecutor) driver)
+                    .executeScript("mobile: scrollGesture", ImmutableMap.of(
+
+                            "left", 100, "top", 100, "width", 200, "height", 200,
+                            "direction", "down",
+                            "percent", 20.0
+                    ));
+        }while (canScrollMore);
+    }
 }

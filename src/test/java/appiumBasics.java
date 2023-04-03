@@ -49,4 +49,11 @@ public class appiumBasics extends BaseTest {
 
         Thread.sleep(3000);
     }
+    @Test(priority = 30)
+    @Description("Scroll gesture test")
+    public void scrollGesture(){
+        viewsPage.getViewsBElement().click();
+        Util.scrollToEndAction(driver);
+
+    }
 }
