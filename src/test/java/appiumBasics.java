@@ -36,8 +36,16 @@ public class appiumBasics extends BaseTest {
         viewsPage.getCustomAdapterElement().click();
 
         WebElement peopleNames = viewsPage.getPeoplesNameElement();
-        ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
-                ImmutableMap.of("elementId", ((RemoteWebElement)peopleNames).getId(), "duration",2000));
+//        ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
+//                ImmutableMap.of("elementId", ((RemoteWebElement)peopleNames).getId(), "duration",2000));
+
+        Util.longClickAction(peopleNames, driver);
+        SoftAssert softAssert = new SoftAssert();
+        String sampleMenuTxt = viewsPage.getPopUpSampleMenu().getText();
+
+        softAssert.assertEquals(sampleMenuTxt,
+                "Sample menu",
+                "Text in PopUp is incorrect");
 
         Thread.sleep(3000);
     }

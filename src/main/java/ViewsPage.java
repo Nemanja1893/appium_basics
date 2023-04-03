@@ -22,4 +22,7 @@ public class ViewsPage extends BasePage{
     public  WebElement getPeoplesNameElement(){
         return driver.findElement(By.xpath("//android.widget.TextView[@text = 'People Names']"));
     }
+    public WebElement getPopUpSampleMenu(){
+        return driver.findElement(By.id("android:id/title"));
+    }
 }

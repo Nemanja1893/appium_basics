@@ -1,4 +1,3 @@
-import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -18,6 +17,9 @@ public abstract class BaseTest {
     protected AppiumDriverLocalService service;
     protected PreferencePage preferencePage;
     protected ViewsPage viewsPage;
+
+
+
 
     @BeforeClass
     public void configureAppium() throws MalformedURLException {
