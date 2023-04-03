@@ -56,4 +56,26 @@ public class appiumBasics extends BaseTest {
         Util.scrollToEndAction(driver);
 
     }
+    @Test(priority = 40)
+    @Description("Swipe gesture test")
+    public void swipeGesture(){
+        viewsPage.getViewsBElement().click();
+        viewsPage.getGalleryButton().click();
+        viewsPage.getPhotosButton().click();
+
+        WebElement firstPhoto = viewsPage.getFirstPhoto();
+        Assert.assertEquals(firstPhoto.getAttribute("focusable"),
+                "true",
+                "Focusable attribute has wrong value");
+
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement)firstPhoto).getId(),
+                "direction", "left",
+                "percent", 0.75
+        ));
+
+        Assert.assertEquals(firstPhoto.getAttribute("focusable"),
+                "false",
+                "Focusable attribute has wrong value");
+    }
 }

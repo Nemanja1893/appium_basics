@@ -25,4 +25,13 @@ public class ViewsPage extends BasePage{
     public WebElement getPopUpSampleMenu(){
         return driver.findElement(By.id("android:id/title"));
     }
+    public WebElement getGalleryButton(){
+        return driver.findElement(AppiumBy.accessibilityId("Gallery"));
+    }
+    public WebElement getPhotosButton(){
+        return driver.findElement(AppiumBy.accessibilityId("1. Photos"));
+    }
+    public WebElement getFirstPhoto(){
+        return driver.findElement(By.xpath("//android.widget.ImageView[1]"));
+    }
 }
