@@ -3,6 +3,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -18,7 +19,7 @@ public abstract class BaseTest {
     protected PreferencePage preferencePage;
     protected ViewsPage viewsPage;
 
-
+    protected WebDriverWait wait;
 
 
     @BeforeClass
@@ -43,8 +44,8 @@ public abstract class BaseTest {
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), cap);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        preferencePage = new PreferencePage(driver, service);
-        viewsPage = new ViewsPage(driver, service);
+        preferencePage = new PreferencePage(driver, service, wait);
+        viewsPage = new ViewsPage(driver, service, wait);
     }
     @AfterClass
     public void closeAppium(){

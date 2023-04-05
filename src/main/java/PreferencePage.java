@@ -1,15 +1,17 @@
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumElementLocatorFactory;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class PreferencePage extends BasePage{
 
-    public PreferencePage(WebDriver driver, AppiumDriverLocalService service) {
-        super(driver, service);
+    public PreferencePage(AndroidDriver driver, AppiumDriverLocalService service, WebDriverWait wait) {
+        super(driver, service, wait);
     }
     public WebElement getPreferenceButton(){
         return driver.findElement(AppiumBy.accessibilityId("Preference"));

@@ -1,8 +1,13 @@
 import com.sun.org.glassfish.gmbal.Description;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.time.Duration;
 
 public class appiumBasics extends BaseTest {
     @Test(priority = 10)
@@ -87,7 +92,7 @@ public class appiumBasics extends BaseTest {
                 "Drag result text is incorrect");
 
 
-
+        wait.until(ExpectedConditions.visibilityOf(viewsPage.getDragResultElement()));
     }
 
 
