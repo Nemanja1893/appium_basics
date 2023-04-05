@@ -68,11 +68,7 @@ public class appiumBasics extends BaseTest {
                 "true",
                 "Focusable attribute has wrong value");
 
-        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement)firstPhoto).getId(),
-                "direction", "left",
-                "percent", 0.75
-        ));
+        Util.swipeToElement(firstPhoto, driver);
 
         Assert.assertEquals(firstPhoto.getAttribute("focusable"),
                 "false",

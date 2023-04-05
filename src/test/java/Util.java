@@ -1,4 +1,5 @@
 import com.google.common.collect.ImmutableMap;
+import com.sun.org.apache.xpath.internal.operations.And;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -21,5 +22,12 @@ public class Util {
                             "percent", 20.0
                     ));
         }while (canScrollMore);
+    }
+    public static void swipeToElement(WebElement element, AndroidDriver driver){
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement)element).getId(),
+                "direction", "left",
+                "percent", 0.75
+        ));
     }
 }
