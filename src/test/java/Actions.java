@@ -1,11 +1,10 @@
 import com.google.common.collect.ImmutableMap;
-import com.sun.org.apache.xpath.internal.operations.And;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-public class Util {
+public abstract class Actions {
 
     public static void longClickAction(WebElement element, AndroidDriver driver){
         ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",

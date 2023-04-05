@@ -35,7 +35,7 @@ public class appiumBasics extends BaseTest {
 //        ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
 //                ImmutableMap.of("elementId", ((RemoteWebElement)peopleNames).getId(), "duration",2000));
 
-        Util.longClickAction(peopleNames, driver);
+        Actions.longClickAction(peopleNames, driver);
         SoftAssert softAssert = new SoftAssert();
         String sampleMenuTxt = viewsPage.getPopUpSampleMenu().getText();
 
@@ -50,7 +50,7 @@ public class appiumBasics extends BaseTest {
     @Description("Scroll gesture test")
     public void scrollGesture() {
         viewsPage.getViewsBElement().click();
-        Util.scrollToEndAction(driver);
+        Actions.scrollToEndAction(driver);
 
     }
 
@@ -66,7 +66,7 @@ public class appiumBasics extends BaseTest {
                 "true",
                 "Focusable attribute has wrong value");
 
-        Util.swipeToElementAction(firstPhoto, driver);
+        Actions.swipeToElementAction(firstPhoto, driver);
 
         Assert.assertEquals(firstPhoto.getAttribute("focusable"),
                 "false",
@@ -80,7 +80,7 @@ public class appiumBasics extends BaseTest {
 
         WebElement dragDot = viewsPage.getFirstDragDot();
 
-        Util.dragAndDropAction(dragDot, driver, 830, 750);
+        Actions.dragAndDropAction(dragDot, driver, 830, 750);
 
         Assert.assertEquals(viewsPage.getDragResultElement().getText(),
                 "Dropped!",
