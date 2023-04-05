@@ -1,10 +1,5 @@
-import com.google.common.collect.ImmutableMap;
 import com.sun.org.glassfish.gmbal.Description;
-import io.appium.java_client.AppiumBy;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -28,6 +23,7 @@ public class appiumBasics extends BaseTest {
         preferencePage.getWifiPopUpOkButton().click();
 
     }
+
     @Test(priority = 20)
     @Description("Long Click Gesture")
     public void LongClickTest() throws InterruptedException {
@@ -49,16 +45,18 @@ public class appiumBasics extends BaseTest {
 
         Thread.sleep(3000);
     }
+
     @Test(priority = 30)
     @Description("Scroll gesture test")
-    public void scrollGesture(){
+    public void scrollGesture() {
         viewsPage.getViewsBElement().click();
         Util.scrollToEndAction(driver);
 
     }
+
     @Test(priority = 40)
     @Description("Swipe gesture test")
-    public void swipeGesture(){
+    public void swipeGesture() {
         viewsPage.getViewsBElement().click();
         viewsPage.getGalleryButton().click();
         viewsPage.getPhotosButton().click();
@@ -68,10 +66,29 @@ public class appiumBasics extends BaseTest {
                 "true",
                 "Focusable attribute has wrong value");
 
-        Util.swipeToElement(firstPhoto, driver);
+        Util.swipeToElementAction(firstPhoto, driver);
 
         Assert.assertEquals(firstPhoto.getAttribute("focusable"),
                 "false",
                 "Focusable attribute has wrong value");
     }
+    @Test(priority = 50)
+    @Description("Drag and drop test")
+    public void dragAndDrop() throws InterruptedException {
+        viewsPage.getViewsBElement().click();
+        viewsPage.getDragAndDropButton().click();
+
+        WebElement dragDot = viewsPage.getFirstDragDot();
+
+        Util.dragAndDropAction(dragDot, driver, 830, 750);
+
+        Assert.assertEquals(viewsPage.getDragResultElement().getText(),
+                "Dropped!",
+                "Drag result text is incorrect");
+
+
+
+    }
+
+
 }

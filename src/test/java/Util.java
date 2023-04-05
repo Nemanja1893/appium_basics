@@ -23,11 +23,18 @@ public class Util {
                     ));
         }while (canScrollMore);
     }
-    public static void swipeToElement(WebElement element, AndroidDriver driver){
+    public static void swipeToElementAction(WebElement element, AndroidDriver driver){
         ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement)element).getId(),
                 "direction", "left",
                 "percent", 0.75
+        ));
+    }
+    public static void dragAndDropAction(WebElement element, AndroidDriver driver, int x, int y){
+        ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId(),
+                "endX", x,
+                "endY", y
         ));
     }
 }

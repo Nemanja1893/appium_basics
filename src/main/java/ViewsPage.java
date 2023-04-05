@@ -34,4 +34,13 @@ public class ViewsPage extends BasePage{
     public WebElement getFirstPhoto(){
         return driver.findElement(By.xpath("//android.widget.ImageView[1]"));
     }
+    public WebElement getDragAndDropButton(){
+        return driver.findElement(AppiumBy.accessibilityId("Drag and Drop"));
+    }
+    public WebElement getFirstDragDot(){
+        return driver.findElement(By.id("io.appium.android.apis:id/drag_dot_1"));
+    }
+    public WebElement getDragResultElement(){
+        return driver.findElement(By.id("io.appium.android.apis:id/drag_result_text"));
+    }
 }
